@@ -1,6 +1,6 @@
 package org.launchcode.models;
 
-import org.dom4j.Entity;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -20,7 +20,15 @@ public class Category {
 
     }
 
-    public Categoy(String aName){
+    public Category(String aName){
         name=aName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
