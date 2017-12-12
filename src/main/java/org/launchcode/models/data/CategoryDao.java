@@ -1,7 +1,6 @@
 package org.launchcode.models.data;
 
 
-import org.apache.catalina.startup.ClassLoaderFactory;
 import org.launchcode.models.Category;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
