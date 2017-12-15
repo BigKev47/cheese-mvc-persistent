@@ -53,9 +53,10 @@ public class CategoryController {
     /*  Still working on getting the ~/category/3 thing working
 */
     @RequestMapping(value = "{category}", method = RequestMethod.GET)
-    public String byCategory(Model model, @PathVariable("category") int category) {
+    public String byCategory(Model model, @PathVariable("category") Category category) {
         model.addAttribute("cheeses", cheeseDao.findAll());
-        model.addAttribute("category", category);
+        model.addAttribute("category", category.getId());
+        model.addAttribute("title", category.getName()+" Cheeses");
 
         return "cheese/index";
     }
