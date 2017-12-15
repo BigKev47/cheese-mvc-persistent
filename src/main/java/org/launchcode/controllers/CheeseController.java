@@ -78,15 +78,4 @@ public class CheeseController {
 
         return "redirect:";
     }
-
-/*  Still working on getting the ~/category/3 thing working
-
-    @RequestMapping(value = "category/{category}", method = RequestMethod.GET)
-    public String category(Model model){
-        @PathVariable int category;
-        model.addAttribute("cheeses", cheeseDao.findAll());
-
-        return "index";
-    }*/
-
 }

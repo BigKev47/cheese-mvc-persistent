@@ -18,12 +18,18 @@
         <th>Description</th>
         <th>Category</th>
     </tr>
-
+    <div th:if="${category}">
+        <tr th:each="cheese : ${cheeses}" th:if="${category}==${cheese.category.id}">
+            <td th:text="${cheese.name}"></td>
+            <td th:text="${cheese.description}"></td>
+            <td th:text="${cheese.category.name}"></td>
+        </tr></div>
+    <div th:unless="${category}">
     <tr th:each="cheese : ${cheeses}">
         <td th:text="${cheese.name}"></td>
         <td th:text="${cheese.description}"></td>
         <td th:text="${cheese.category.name}"></td>
-    </tr>
+    </tr></div>
 
 </table>
 
