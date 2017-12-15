@@ -50,8 +50,7 @@ public class CategoryController {
 
 
     }
-    /*  Still working on getting the ~/category/3 thing working
-*/
+//Bonus Mission now working.
     @RequestMapping(value = "{category}", method = RequestMethod.GET)
     public String byCategory(Model model, @PathVariable("category") Category category) {
         model.addAttribute("cheeses", cheeseDao.findAll());
