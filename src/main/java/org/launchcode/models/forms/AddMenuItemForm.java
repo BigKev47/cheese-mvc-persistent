@@ -28,6 +28,8 @@ public class AddMenuItemForm {
         return menu;
     }
 
+    public Iterable<Cheese> getCheeses() {return cheeses; }
+
     public void setMenu(Menu menu) {
         this.menu = menu;
     }

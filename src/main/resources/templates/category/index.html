@@ -6,24 +6,20 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<strong><a href="/category/add">Add New Category</a></strong>
+
 
 <nav th:replace="fragments :: navigation"></nav>
 
 <p th:unless="${categories} and ${categories.size()}">no category :(</p>
+<p>
+<ul th:each="category : ${categories}">
+    <li> <a th:href="@{'/category/'+${category.id}}"  th:text="${category.name}"></a></li>
+</ul>
+</p>
 
 
-<table class="table">
 
-    <tr>
-        <th>Category</th>
-    </tr>
-
-    <tr th:each="category : ${categories}">
-        <td th:text="${category.name}"></td>
-    </tr>
-
-</table>
+<strong><a href="/category/add">Add New Category</a></strong>
 
 </body>
 </html>
