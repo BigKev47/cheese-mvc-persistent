@@ -78,8 +78,9 @@ public class MenuController {
     public String addtem(Model model,
                           @ModelAttribute @Valid AddMenuItemForm form,
                           Errors errors) {
-        Menu targetMenu = menuDao.findOne(form.getMenuId());
         Cheese newCheese = cheeseDao.findOne(form.getCheeseId());
+        Menu targetMenu = menuDao.findOne(form.getMenuId());
+
         targetMenu.addItem(newCheese);
         menuDao.save(targetMenu);
 

@@ -1,5 +1,6 @@
 package org.launchcode.models;
 
+
 import org.launchcode.models.Category;
 import org.launchcode.models.Cheese;
 
@@ -31,7 +32,9 @@ public class Menu {
 
     public Menu() { };
 
-    public void addItem(Cheese item){}
+    public void addItem(Cheese item){
+        cheeses.add(item);
+    }
 
     public int getId() {
         return id;
