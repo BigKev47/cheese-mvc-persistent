@@ -5,6 +5,7 @@ import org.launchcode.models.Category;
 import  org.launchcode.controllers.CategoryController;
 import org.launchcode.models.data.CategoryDao;
 import org.launchcode.models.data.CheeseDao;
+import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,4 +79,26 @@ public class CheeseController {
 
         return "redirect:";
     }
+    @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.GET)
+    public String displayEditForm(Model model, @PathVariable int cheeseId) {
+        Cheese aCheese = cheeseDao.findOne(cheeseId);
+        model.addAttribute("title", "Edit Cheese "+aCheese.getName()+"(id="+aCheese.getId());
+        model.addAttribute("cheese", aCheese);
+        model.addAttribute("categories", categoryDao.findAll());
+        return "cheese/edit";
+
+    }
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String processEditForm(Model model, int cheeseId, String name, String description, int categoryId) {
+
+            Cheese aCheese = cheeseDao.findOne(cheeseId);
+            Category cat = categoryDao.findOne(categoryId);
+            aCheese.setName(name);
+            aCheese.setDescription(description);
+            aCheese.setCategory(cat);
+            cheeseDao.save(aCheese);
+            return "redirect:/cheese/";
+
+    }
+
 }
